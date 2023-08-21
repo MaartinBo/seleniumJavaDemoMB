@@ -8,7 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 public class LoggedUserPage {
 
 
-
     @FindBy(linkText = "Dashboard")
     private WebElement dashboardLink;
 
@@ -21,7 +20,7 @@ public class LoggedUserPage {
 
     }
 
-    public WebElement getDashboardLink(){
+    public WebElement getDashboardLink() {
         return dashboardLink;
     }
 }

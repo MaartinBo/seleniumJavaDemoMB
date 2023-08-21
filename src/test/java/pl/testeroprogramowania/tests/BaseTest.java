@@ -1,6 +1,7 @@
 package pl.testeroprogramowania.tests;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pl.testeroprogramowania.utils.DriverFactory;
@@ -11,10 +12,11 @@ public class BaseTest {
     protected WebDriver driver;
 
     @BeforeMethod
-    public void setup()  {
-    driver = DriverFactory.getDriver();
-    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    driver.get("http://www.seleniumdemo.com/");
+    public void setup() {
+        driver = DriverFactory.getDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+        driver.get("http://www.seleniumdemo.com/");
     }
 
     @AfterMethod

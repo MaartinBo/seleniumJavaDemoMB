@@ -9,9 +9,22 @@ public class RegisterTest extends BaseTest {
 
     @Test
     public void registerUserTest() {
-        WebElement entryTitle = new HomePage(driver).openMyAccountPage()
-                .registerUser("test321@test.pl", "test@test123.pl").getEntryTitle();
+        int random = (int) (Math.random() * 10000);
 
-        Assert.assertTrue(entryTitle.isDisplayed());
+        WebElement dashboardLink = new HomePage(driver).openMyAccountPage()
+                .registerUserValidData("email" + random + "@test.pl", "3dsaDSA@#!@21321@21")
+                .getDashboardLink();
+        Assert.assertEquals(dashboardLink.getText(), "Dashboard");
     }
+
+    @Test
+    public void registerUserWithSameEmailTest() {
+
+        WebElement error = new HomePage(driver).openMyAccountPage()
+                .registerUserInvalidData("test1@test.pl", "3dsaDSA@#!@21321@21")
+                .getError();
+
+        Assert.assertTrue(error.getText().contains("An account is already registered with your email address. Please log in."));
+    }
+
 }

@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pl.testeroprogramowania.utils.SeleniumHelper;
 
 public class ProductListPage {
 
@@ -14,7 +15,9 @@ public class ProductListPage {
         this.driver = driver;
     }
     public ProductPage openProduct(String title){
-        driver.findElement(By.xpath("//h2[text()='"+ title+"']")).click();
+        By productXpath = By.xpath("//h2[text()='"+ title+"']");
+        SeleniumHelper.waitForClickable(productXpath, driver);
+        driver.findElement(productXpath).click();
         return new ProductPage(driver);
     }
 }

@@ -23,7 +23,7 @@ public class RegisterTest extends BaseTest {
     public void registerUserWithSameEmailTest() {
         WebElement error = new HomePage(driver)
                 .openMyAccountPage()
-                .registerUserInvalidData("test1@test.pl", "3dsaDSA@#!@21321@21")
+                .registerUserInvalidData("test1@test.pl", "test22@test.pl")
                 .getError();
 
         Assert.assertTrue(error.getText().contains("An account is already registered with your email address. Please log in."));

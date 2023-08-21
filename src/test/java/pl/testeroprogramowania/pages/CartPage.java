@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pl.testeroprogramowania.utils.SeleniumHelper;
 
 public class CartPage {
 
@@ -17,6 +18,7 @@ public class CartPage {
         this.driver = driver;
     }
     public AdressDetailsPage openAddressDetails(){
+        SeleniumHelper.waitForClickable(proceedToCheckoutButton,driver);
         proceedToCheckoutButton.click();
         return new AdressDetailsPage(driver);
     }

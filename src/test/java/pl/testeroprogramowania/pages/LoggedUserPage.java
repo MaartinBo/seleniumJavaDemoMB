@@ -13,7 +13,6 @@ public class LoggedUserPage {
 
     private WebDriver driver;
 
-
     public LoggedUserPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;

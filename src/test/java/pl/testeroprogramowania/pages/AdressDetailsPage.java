@@ -1,5 +1,7 @@
 package pl.testeroprogramowania.pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -44,12 +46,15 @@ public class AdressDetailsPage {
 
     private WebDriver driver;
 
+    private static final Logger logger = LogManager.getLogger();
+
     public AdressDetailsPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
 
     public AdressDetailsPage fillAddressDetails(Customer customer, String comments) {
+        logger.info("Filling AddressDetailsPage");
         firstNameInput.sendKeys(customer.getFirstName());
         lastNameInput.sendKeys(customer.getLastName());
         companyNameInput.sendKeys(customer.getCompanyName());
@@ -61,10 +66,12 @@ public class AdressDetailsPage {
         billingPhoneInput.sendKeys(customer.getPhone());
         billingEmailInput.sendKeys(customer.getEmail());
         orderCommentsInput.sendKeys(comments);
+        logger.info("Filling AddressDetailsPag done");
         return this;
     }
 
     public OrderDetailsPage clickOrderButtonWithoutEx(){
+        logger.info("Clicking order button");
         try {
             placeOrderButton.click();
         }
@@ -72,6 +79,7 @@ public class AdressDetailsPage {
         {
             placeOrderButton.click();
         }
+        logger.info("Clicking order button done");
         return new OrderDetailsPage(driver);
     }
 }

@@ -1,5 +1,7 @@
 package pl.testeroprogramowania.pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,6 +31,8 @@ public class MyAccountPage {
 
     private WebDriver driver;
 
+    private static final Logger logger = LogManager.getLogger();
+
     public MyAccountPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
@@ -36,12 +40,16 @@ public class MyAccountPage {
     }
 
     public LoggedUserPage registerUserValidData(String email, String password) {
+        logger.info("Registering user with valid data");
         registerUser(email, password);
+        logger.info("Registering user with valid data done");
         return new LoggedUserPage(driver);
     }
 
     public MyAccountPage registerUserInvalidData(String email, String password) {
+        logger.info("Registering user with invalid data");
         registerUser(email, password);
+        logger.info("Registering user with invalid data done");
         return this;
     }
 
@@ -56,12 +64,16 @@ public class MyAccountPage {
     }
 
     public LoggedUserPage logInValidData(String username, String password) {
+        logger.info("Login user with valid data");
         logIn(username, password);
+        logger.info("Login user with valid data done");
         return new LoggedUserPage(driver);
     }
 
     public MyAccountPage logInInvalidData(String username, String password) {
+        logger.info("Login user with invalid data");
         logIn(username, password);
+        logger.info("Login user with invalid data done");
         return this;
     }
 

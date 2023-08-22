@@ -5,6 +5,18 @@ https://www.udemy.com/course/kurs-selenium-java/
 
 and further developed by Marcin.B
 
+Technologies that are used in that project:
+
+Java/
+Maven/
+Selenium/
+TestNG/
+log4j/
+extentreports
+
+
+
+
 test_website:
 http://www.seleniumdemo.com/
 

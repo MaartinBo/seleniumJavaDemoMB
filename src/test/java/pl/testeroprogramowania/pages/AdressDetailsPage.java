@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import pl.testeroprogramowania.models.Customer;
+import pl.testeroprogramowania.utils.SeleniumHelper;
 
 public class AdressDetailsPage {
 
@@ -73,6 +74,7 @@ public class AdressDetailsPage {
     public OrderDetailsPage clickOrderButtonWithoutEx(){
         logger.info("Clicking order button");
         try {
+            SeleniumHelper.waitForClickable(placeOrderButton, driver);
             placeOrderButton.click();
         }
         catch(org.openqa.selenium.StaleElementReferenceException ex)

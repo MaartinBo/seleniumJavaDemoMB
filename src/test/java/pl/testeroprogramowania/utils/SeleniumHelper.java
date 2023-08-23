@@ -46,8 +46,6 @@ public class SeleniumHelper {
         // Define a custom date and time format
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
 
-        // Format the current date and time as a string
-
         // Return the formatted date and time
         return currentDateTime.format(formatter);
     }

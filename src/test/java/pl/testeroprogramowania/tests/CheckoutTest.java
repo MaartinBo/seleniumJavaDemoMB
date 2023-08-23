@@ -15,30 +15,9 @@ import java.io.IOException;
 
 public class CheckoutTest extends BaseTest {
 
-//    @Test
-//    public void checkoutJavaProductTest() throws IOException {
-//        ExtentTest test = extentReports.createTest("Checkout Java Product Test  ");
-//        Customer customer = new Customer();
-//
-//        OrderDetailsPage orderDetailsPage = new HomePage(driver)
-//                .openShopPage()
-//                .openProduct("Java Selenium WebDriver")
-//                .addProductToCart()
-//                .viewCart()
-//                .openAddressDetails()
-//                .fillAddressDetails(customer, "some comments")
-//                .clickOrderButtonWithoutEx();
-//
-//        test.log(Status.PASS, "Order product click done", SeleniumHelper.getScreenshot(driver));
-//
-//        Assert.assertEquals(orderDetailsPage.getOrderNotice().getText(), "Thank you. Your order has been received.");
-//        Assert.assertEquals(orderDetailsPage.getProductName().getText(), "Java Selenium WebDriver × 1");
-//        test.log(Status.PASS, "Order product done", SeleniumHelper.getScreenshot(driver));
-//    }
-
     @Test(dataProvider = "data")
     public void checkoutProductTest(String Product, Float ExpectedPrice) throws IOException {
-        ExtentTest test = extentReports.createTest("Checkout test " +  Product);
+        ExtentTest test = extentReports.createTest("Checkout test " + Product);
         Customer customer = new Customer();
 
         OrderDetailsPage orderDetailsPage = new HomePage(driver)

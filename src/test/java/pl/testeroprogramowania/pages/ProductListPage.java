@@ -22,9 +22,10 @@ public class ProductListPage {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
-    public ProductPage openProduct(String title){
+
+    public ProductPage openProduct(String title) {
         logger.info("Opening product");
-        By productXpath = By.xpath("//h2[text()='"+ title+"']");
+        By productXpath = By.xpath("//h2[text()='" + title + "']");
         SeleniumHelper.waitForClickable(productXpath, driver);
         driver.findElement(productXpath).click();
         logger.info("Opening product done");
@@ -35,7 +36,7 @@ public class ProductListPage {
         logger.info("Validating product actual price");
 
         // Build the XPath expression to locate the product price
-        String xpathExpressionPrice = "//h2[text()='"+ product +"']/ancestor::li//span[@class='woocommerce-Price-amount amount']";
+        String xpathExpressionPrice = "//h2[text()='" + product + "']/ancestor::li//span[@class='woocommerce-Price-amount amount']";
 
         float floatValue = expectedPrice;
         // Format the float as "9,99 from 9.99

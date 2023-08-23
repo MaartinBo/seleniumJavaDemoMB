@@ -36,7 +36,6 @@ public class MyAccountPage {
     public MyAccountPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
-
     }
 
     public LoggedUserPage registerUserValidData(String email, String password) {
@@ -82,5 +81,4 @@ public class MyAccountPage {
         passwordInput.sendKeys(password);
         loginButton.click();
     }
-
 }

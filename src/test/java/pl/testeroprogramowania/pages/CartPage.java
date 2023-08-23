@@ -21,9 +21,10 @@ public class CartPage {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
-    public AdressDetailsPage openAddressDetails(){
+
+    public AdressDetailsPage openAddressDetails() {
         logger.info("Opening AddressDetailsPage");
-        SeleniumHelper.waitForClickable(proceedToCheckoutButton,driver);
+        SeleniumHelper.waitForClickable(proceedToCheckoutButton, driver);
         proceedToCheckoutButton.click();
         logger.info("Opening AddressDetailsPage done");
         return new AdressDetailsPage(driver);

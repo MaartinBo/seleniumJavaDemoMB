@@ -18,6 +18,7 @@ public class HomePage {
     private WebDriver driver;
 
     private static final Logger logger = LogManager.getLogger();
+
     public HomePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
@@ -29,6 +30,7 @@ public class HomePage {
         logger.info("Opening MyAccountPage done");
         return new MyAccountPage(driver);
     }
+
     public ProductListPage openShopPage() {
         logger.info("Opening ShopPage");
         shopLink.click();

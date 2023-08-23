@@ -71,14 +71,12 @@ public class AdressDetailsPage {
         return this;
     }
 
-    public OrderDetailsPage clickOrderButtonWithoutEx(){
+    public OrderDetailsPage clickOrderButtonWithoutEx() {
         logger.info("Clicking order button");
         try {
             SeleniumHelper.waitForClickable(placeOrderButton, driver);
             placeOrderButton.click();
-        }
-        catch(org.openqa.selenium.StaleElementReferenceException ex)
-        {
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
             placeOrderButton.click();
         }
         logger.info("Clicking order button done");
